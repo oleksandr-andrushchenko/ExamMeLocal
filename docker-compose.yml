@@ -1,0 +1,11 @@
+version: "3.5"
+
+services:
+  api:
+    build:
+      context: ../ExamMeApi
+      dockerfile: ../ExamMeLocal/DockerfileApi
+    volumes:
+      - ../ExamMeApi:/usr/app
+    ports:
+      - "8080:8080"
