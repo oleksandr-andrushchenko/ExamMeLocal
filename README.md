@@ -1,4 +1,4 @@
-# ExamMe
+# ExamMe - Local dev env for ExamMe
 
 1. git clone git@github.com:oleksandr-andrushchenko/ExamMeApi.git
 1. git clone git@github.com:oleksandr-andrushchenko/ExamMeLocal.git
