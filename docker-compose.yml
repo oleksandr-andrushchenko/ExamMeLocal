@@ -9,3 +9,22 @@ services:
       - ../ExamMeApi:/usr/app
     ports:
       - "8080:8080"
+    links:
+      - mongo
+    networks:
+      - internal
+
+  mongo:
+    image: mongo:latest
+    restart: always
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: 1111
+    ports:
+      - "27017:27017"
+    networks:
+      - internal
+
+networks:
+  internal:
+    driver: bridge
