@@ -9,10 +9,6 @@ services:
       - ../ExamMeApi:/usr/app
     ports:
       - "8080:8080"
-    links:
-      - mongo
-    networks:
-      - internal
 
   mongo:
     image: mongo:latest
@@ -20,11 +16,10 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: 1111
+    volumes:
+      - mongo-data:/data/db
     ports:
       - "27017:27017"
-    networks:
-      - internal
 
-networks:
-  internal:
-    driver: bridge
+volumes:
+  mongo-data:
