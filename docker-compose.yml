@@ -10,6 +10,15 @@ services:
     ports:
       - "8080:8080"
 
+  front:
+    build:
+      context: ../ExamMeFront
+      dockerfile: ../ExamMeLocal/DockerfileFront
+    volumes:
+      - ../ExamMeFront:/usr/app
+    ports:
+      - "8081:8081"
+
   mongo:
     image: mongo:latest
     restart: always
