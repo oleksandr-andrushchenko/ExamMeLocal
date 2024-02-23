@@ -1,0 +1,12 @@
+FROM cypress/included:latest
+
+RUN deluser --remove-home node \
+  && addgroup --system node --gid 1001 \
+  && adduser --system node --uid 1001 --gid 1001
+
+USER node
+
+WORKDIR /usr/app
+COPY . .
+
+ENTRYPOINT ["tail", "-f", "/dev/null"]
