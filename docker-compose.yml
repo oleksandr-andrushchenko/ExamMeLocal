@@ -19,18 +19,6 @@ services:
     ports:
       - "8081:8081"
 
-  front-tests:
-    build:
-      context: ../ExamMeFront
-      dockerfile: ../ExamMeLocal/DockerfileFrontTests
-    depends_on:
-      - front
-    environment:
-      - CYPRESS_BASE_URL=http://front:8081
-      - CYPRESS_BACKEND_URL=http://api:8080
-    volumes:
-      - ../ExamMeFront:/usr/app
-
   mongo:
     image: mongo:latest
     restart: always
